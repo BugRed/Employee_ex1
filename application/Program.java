@@ -19,12 +19,12 @@ public class Program {
 		System.out.print("Enter the number of Employee: ");
 		int n = sc.nextInt();
 
-		System.out.print("Outsourced(y/n)?");
-		char resp = sc.next().charAt(0);
-
 		for (int i = 1; i <= n; i++) {
 			sc.nextLine();
 			System.out.println("Employee #" + i + " data: ");
+			System.out.print("Outsourced(y/n)?");
+			char resp = sc.next().charAt(0);
+			sc.nextLine();
 			System.out.print("Name: ");
 			String employeeName = sc.nextLine();
 			System.out.print("Hours: ");
@@ -33,16 +33,13 @@ public class Program {
 			double employeeValuePerHour = sc.nextDouble();
 
 			if (resp == 'y') {
-				
+
 				System.out.print("Additional charge: ");
 				double additional = sc.nextDouble();
-				Employee employee = new OutsourceEmployee(employeeName, employeeHours, employeeValuePerHour,
-						additional);
-				employeeList.add(employee);
+				employeeList.add(new OutsourceEmployee(employeeName, employeeHours, employeeValuePerHour, additional));
 
 			} else {
-				Employee employee = new Employee(employeeName, employeeHours, employeeValuePerHour);
-				employeeList.add(employee);
+				employeeList.add(new Employee(employeeName, employeeHours, employeeValuePerHour));
 
 			}
 
